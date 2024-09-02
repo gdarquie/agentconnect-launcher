@@ -1,6 +1,6 @@
 ## Install
 
-Copy this file to your machine after installing AgentConnect Project. Nothing more is supposed to do.
+Copy this file to your machine after installing AgentConnect with fc repository. Nothing more is supposed to be done.
 
 ## Alias
 
@@ -13,7 +13,7 @@ alias ac=/path/of/the/folder/agentconnect-launcher/agentconnect-launcher.sh
 
 Don't forget to source the file or to restart the shell.
 
-## "Permissin denied" error
+## "Permission denied" error
 
 If you have a "permission denied" error, try to add execute permission to the launcher file.
 

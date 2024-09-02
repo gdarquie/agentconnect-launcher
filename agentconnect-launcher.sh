@@ -100,7 +100,7 @@ then
 # launch the unit tests
 elif [ "$1" = 'test' ] || [ "$1" = 't' ];
 then
-    $DKS_PATH $(DKS_PATH) exec core-fca-low yarn test
+    $DKS_PATH exec core-fca-low yarn test
     exit 0
 
 # launch the cypress tests with the graphic user interface

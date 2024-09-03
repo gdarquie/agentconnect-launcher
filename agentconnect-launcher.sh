@@ -128,7 +128,7 @@ then
     exit 0
 
 # launch the cypress visual tests
-elif [ "$1" = 'visual'] || [ "$1" = 'v' ];
+elif [ "$1" = 'visual' ] || [ "$1" = 'v' ];
 then
     cd $FC_ROOT/fc/quality/fca && yarn install && yarn test:low:snapshot
     exit 0

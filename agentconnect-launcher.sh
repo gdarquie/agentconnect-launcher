@@ -10,6 +10,12 @@ then
     $DKS_PATH prune && $DKS_PATH up bdd-fca-low && $DKS_PATH start-all
     exit 0
 
+# start the default fca stack offline
+elif [ "$1" = 'start-offline' ] || [ "$1" = 'so' ];
+then
+    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up bdd-fca-low && $DKS_PATH start-all
+    exit 0
+
 # access to the mongo shell
 elif [ "$1" = 'mongodb' ] || [ "$1" = 'db' ];
 then

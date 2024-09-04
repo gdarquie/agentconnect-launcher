@@ -31,7 +31,7 @@ then
 # start the default fca stack without pulling docker images
 elif [ "$1" = 'start-min' ] || [ "$1" = 'sm' ];
 then
-    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up bdd-fca-low && $DKS_PATH start-all
+    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up min-fca-low && $DKS_PATH start-all
     exit 0
 
 # start a min fca low stack without pulling docker images
@@ -83,7 +83,7 @@ then
     exit 0
 
 # clean the code of /back by launching prettier and eslint
-elif [ "$1" = 'prepare-full' ] || [ "$1" = 'pf' ];
+elif [ "$1" = 'prepare' ] || [ "$1" = 'p' ];
 then
     $DKS_PATH exec core-fca-low yarn lint --fix &&\
 	$DKS_PATH exec core-fca-low yarn prettier --write &&\

@@ -34,6 +34,18 @@ then
     $DKS_PATH prune && OFFLINE=1 $DKS_PATH up min-fca-low && $DKS_PATH start-all
     exit 0
 
+# start an hybridge fca stack
+elif [ "$1" = 'start-hybridge' ] || [ "$1" = 'sy' ];
+then
+    $DKS_PATH prune && $DKS_PATH up hybridge-fca-low && $DKS_PATH start-all
+    exit 0
+
+# start an hybridge fca stack without pulling docker images
+elif [ "$1" = 'start-hybridge-offline' ] || [ "$1" = 'syo' ];
+then
+    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up hybridge-fca-low && $DKS_PATH start-all
+    exit 0
+
 # start a min fca low stack without pulling docker images
 elif [ "$1" = 'start-min-offline' ] || [ "$1" = 'smo' ];
 then

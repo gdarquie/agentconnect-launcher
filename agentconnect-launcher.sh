@@ -37,7 +37,7 @@ then
 # start a min fca low stack without pulling docker images
 elif [ "$1" = 'start-min-offline' ] || [ "$1" = 'smo' ];
 then
-    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up min-fca-low && $DKS_PATH start-all
+    $DKS_PATH prune && OFFLINE=1 && $DKS_PATH up min-fca-low && $DKS_PATH start-all
     exit 0
 
 # start the min fca stack with log
@@ -49,7 +49,7 @@ then
 # start the min fca stack without pulling docker images
 elif [ "$1" = 'start-min-log' ] || [ "$1" = 'smlo' ];
 then
-    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up min-fca-log && $DKS_PATH start-all
+    $DKS_PATH prune && OFFLINE=1 && $DKS_PATH up min-fca-log && $DKS_PATH start-all
     exit 0
 
 # start an hybridge fca stack

@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 # start the default fca stack
 elif [ "$1" = 'start' ] || [ "$1" = 's' ];
 then
-    $DKS_PATH prune && $DKS_PATH up bdd-fca-low && $DKS_PATH start-all
+    $DKS_PATH switch bdd-fca-low
     exit 0
 
 # start the default fca stack offline
@@ -31,19 +31,13 @@ then
 # start the default fca stack without pulling docker images
 elif [ "$1" = 'start-min' ] || [ "$1" = 'sm' ];
 then
-    $DKS_PATH prune && $DKS_PATH up min-fca-low && $DKS_PATH start-all
+    $DKS_PATH switch min-fca-low
     exit 0
 
 # start a min fca low stack without pulling docker images
 elif [ "$1" = 'start-min-offline' ] || [ "$1" = 'smo' ];
 then
     $DKS_PATH prune && OFFLINE=1 && $DKS_PATH up min-fca-low && $DKS_PATH start-all
-    exit 0
-
-# start the min fca stack with log
-elif [ "$1" = 'start-min-log' ] || [ "$1" = 'sml' ];
-then
-    $DKS_PATH prune && $DKS_PATH up min-fca-log && $DKS_PATH start-all
     exit 0
 
 # start the min fca stack without pulling docker images
@@ -55,7 +49,7 @@ then
 # start an hybridge fca stack
 elif [ "$1" = 'start-hybridge' ] || [ "$1" = 'sy' ];
 then
-    $DKS_PATH prune && $DKS_PATH up hybridge-fca-low && $DKS_PATH start-all
+    $DKS_PATH switch hybridge-fca-low
     exit 0
 
 # start an hybridge fca stack without pulling docker images
@@ -67,7 +61,7 @@ then
 # start a default fca stack without idp by default
 elif [ "$1" = 'start-rie' ] || [ "$1" = 'rie' ];
 then
-    $DKS_PATH prune && $DKS_PATH up  min-fca-rie && $DKS_PATH start-all
+    $DKS_PATH swtich  min-fca-rie
     exit 0
 
 # start a default fca stack without idp by default

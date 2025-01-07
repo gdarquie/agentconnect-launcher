@@ -13,7 +13,7 @@ then
 # start the default fca stack offline
 elif [ "$1" = 'start-offline' ] || [ "$1" = 'so' ];
 then
-    $DKS_PATH prune && OFFLINE=1 $DKS_PATH up bdd-fca-low && $DKS_PATH start-all
+    OFFLINE=1 $DKS_PATH switch bdd-fca-low
     exit 0
 
 # access to the mongo shell
@@ -37,7 +37,7 @@ then
 # start a min fca low stack without pulling docker images
 elif [ "$1" = 'start-min-offline' ] || [ "$1" = 'smo' ];
 then
-    $DKS_PATH prune && OFFLINE=1 && $DKS_PATH up min-fca-low && $DKS_PATH start-all
+    OFFLINE=1 $DKS_PATH switch min-fca-low
     exit 0
 
 # start the min fca stack without pulling docker images

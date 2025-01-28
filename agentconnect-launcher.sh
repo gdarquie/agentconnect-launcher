@@ -103,8 +103,7 @@ then
 # clean the code of /back by launching prettier and eslint
 elif [ "$1" = 'prepare' ] || [ "$1" = 'p' ];
 then
-    $DKS_PATH exec core-fca-low yarn lint --fix &&\
-	$DKS_PATH exec core-fca-low yarn prettier --write &&\
+    cd $FC_ROOT/fc/back && yarn lint --fix && yarn prettier --write &&\
 	cd $FC_ROOT/fc/quality/fca && yarn lint --fix && yarn prettier --write
     exit 0
 

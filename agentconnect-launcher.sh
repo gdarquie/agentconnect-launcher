@@ -176,6 +176,17 @@ then
     $DKS_PATH exec exploitation-fca-low yarn test	
     exit 0
 
+# launch the cypress tests for exploitation
+elif [ "$1" = 'test-exploitation' ] || [ "$1" = 'tqe' ];
+then
+   cd $FC_ROOT/fc/docker/volumes/src/fc-apps/fc-exploitation && yarn test:e2e:open
+    exit 0
+
+elif [ "$1" = 'test-exploitation' ] || [ "$1" = 'tqeh' ];
+then
+   cd $FC_ROOT/fc/docker/volumes/src/fc-apps/fc-exploitation && yarn test:e2e
+    exit 0
+
 else
     echo "Argument supplied \"$1\" is not implemented."
     exit 0

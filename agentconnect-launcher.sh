@@ -1,5 +1,5 @@
 #!/bin/bash
-DKS_PATH=$FC_ROOT/fc/docker/docker-stack
+DKS_PATH=$FC_ROOT/proconnect-federation/docker/docker-stack
 
 if [ -z "$1" ]; then
     echo "No argument supplied."
@@ -103,8 +103,8 @@ then
 # clean the code of /back by launching prettier and eslint
 elif [ "$1" = 'prepare' ] || [ "$1" = 'p' ];
 then
-    cd $FC_ROOT/fc/back && yarn lint --fix && yarn prettier --write &&\
-	cd $FC_ROOT/fc/quality/fca && yarn lint --fix && yarn prettier --write
+    cd $FC_ROOT/proconnect-federation/back && yarn lint --fix && yarn prettier --write &&\
+	cd $FC_ROOT/proconnect-federation/quality/fca && yarn lint --fix && yarn prettier --write
     exit 0
 
 # update the doc
@@ -129,31 +129,31 @@ then
 # launch the cypress tests with the graphic user interface
 elif [ "$1" = 'quality' ] || [ "$1" = 'tq' ];
 then
-    cd $FC_ROOT/fc/quality/fca && yarn install && yarn start:low
+    cd $FC_ROOT/proconnect-federation/quality/fca && yarn install && yarn start:low
     exit 0
 
 # launch the cypress tests in headless mode
 elif [ "$1" = 'quality-hide' ] || [ "$1" = 'tqh' ];
 then
-    cd $FC_ROOT/fc/quality/fca && yarn install && yarn test:low
+    cd $FC_ROOT/proconnect-federation/quality/fca && yarn install && yarn test:low
     exit 0
 
 # launch the cypress tests on the integration environment
 elif [ "$1" = 'quality-integration' ] || [ "$1" = 'tqi' ];
 then
-    cd $FC_ROOT/fc/quality/fca && yarn install && CYPRESS_TEST_ENV=integ01 yarn start:low
+    cd $FC_ROOT/proconnect-federation/quality/fca && yarn install && CYPRESS_TEST_ENV=integ01 yarn start:low
     exit 0
 
 # launch the cypress visual tests
 elif [ "$1" = 'visual' ] || [ "$1" = 'v' ];
 then
-    cd $FC_ROOT/fc/quality/fca && yarn install && yarn test:low:snapshot
+    cd $FC_ROOT/proconnect-federation/quality/fca && yarn install && yarn test:low:snapshot
     exit 0
 
 # update the snapshot of the visual tests
 elif [ "$1" = 'update-visual' ];
 then
-    cd $FC_ROOT/fc/quality/fca && yarn install && yarn test:low:snapshot --env updateSnapshots=true
+    cd $FC_ROOT/proconnect-federation/quality/fca && yarn install && yarn test:low:snapshot --env updateSnapshots=true
     exit 0
 
 ## FC Exploitation
@@ -179,12 +179,12 @@ then
 # launch the cypress tests for exploitation
 elif [ "$1" = 'test-exploitation' ] || [ "$1" = 'tqe' ];
 then
-   cd $FC_ROOT/fc/docker/volumes/src/fc-apps/fc-exploitation && yarn test:e2e:open
+   cd $FC_ROOT/proconnect-federation/docker/volumes/src/proconnect-exploitation/fc-exploitation && yarn test:e2e:open
     exit 0
 
 elif [ "$1" = 'test-exploitation' ] || [ "$1" = 'tqeh' ];
 then
-   cd $FC_ROOT/fc/docker/volumes/src/fc-apps/fc-exploitation && yarn test:e2e
+   cd $FC_ROOT/proconnect-federation/docker/volumes/src/proconnect-exploitation/fc-exploitation && yarn test:e2e
     exit 0
 
 else
